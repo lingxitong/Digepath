@@ -1,23 +1,16 @@
 # Digepath
 <p align="center">
-  <a href='https://arxiv.org/abs/2404.19759'>
+  <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Arxiv-2404.19759-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
-  <a href='https://arxiv.org/pdf/2404.19759.pdf'>
+  <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Paper-PDF-purple?style=flat&logo=arXiv&logoColor=yellow'></a> 
-  <a href='https://huggingface.co/spaces/wxDai/MotionLCM'>
+  <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow'></a>
-  <a href='https://dai-wenxun.github.io/MotionLCM-page'>
+  <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Project-Page-%23df5b46?style=flat&logo=Google%20chrome&logoColor=%23df5b46'></a> 
-  <a href='https://youtu.be/BhrGmJYaRE4'>
-  <img src='https://img.shields.io/badge/YouTube-Video-EA3323?style=flat&logo=youtube&logoColor=EA3323'></a> 
-  <a href='https://www.bilibili.com/video/BV1uT421y7AN/'>
-  <img src='https://img.shields.io/badge/Bilibili-Video-4EABE6?style=flat&logo=Bilibili&logoColor=4EABE6'></a>
-  <a href='https://github.com/Dai-Wenxun/MotionLCM'>
+  <a href='[https://github.com/Dai-Wenxun/MotionLCM](https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en)'>
   <img src='https://img.shields.io/badge/GitHub-Code-black?style=flat&logo=github&logoColor=white'></a> 
-  <a href='LICENSE'>
-  <img src='https://img.shields.io/badge/License-MotionLCM-blue.svg'></a> 
-  <a href="" target='_blank'>
-  <img src="https://visitor-badge.laobi.icu/badge?page_id=Dai-Wenxun.MotionLCM&left_color=gray&right_color=%2342b983"></a> 
+
 </p>
 <img src="https://github.com/lingxitong/Digepath/blob/main/digelogo.png"  width="290px" align="right" />
 Gastrointestinal (GI) diseases represent a clinically significant burden, necessitating precise diagnostic approaches to optimize patient outcomes. Conventional histopathological diagnosis, heavily reliant on pathologists’ subjective interpretation, suffers from limited reproducibility and diagnostic variability. To overcome these limitations and address the lack of pathology-specific foundation models for GI diseases, we develop Digepath, a specialized foundation model for GI pathology. Our framework introduces a dual-phase iterative optimization strategy combining pretraining with fine-screening, specifically designed to address the detection of sparsely distributed lesion areas in whole-slide images (WSIs). Digepath is pretrained on more than 353 million images from over 200,000 H&E-stained slides of GI disease. It attains state-of-the-art performance on 33 out of 34 tasks related to GI pathology, including pathological diagnosis, molecular prediction, gene mutation prediction, and prognosis evaluation, particularly in diagnostically ambiguous cases and resolution-agnostic tissue classification. We further translate the intelligent screening module for early GI cancer and achieve near-perfect (99.6%) sensitivity across 9 independent medical institutions nationwide. Digepath’s outstanding performance highlights its potential to bridge critical gaps in histopathological practice. This work not only advances AI-driven precision pathology for GI diseases but also establishes a transferable paradigm for other pathology subspecialties. 
