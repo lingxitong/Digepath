@@ -1,5 +1,29 @@
 # Digepath
 ### Subspecialty-Specific Foundation Model for Intelligent Gastrointestinal Pathology
+[Lianghui Zhu](https://github.com/Dai-Wenxun)<sup>†</sup><br>
+[Xitong Ling](https://lhchen.top)<sup>†</sup><br>
+[Minxi Ouyang](https://wangjingbo1219.github.io)<sup>†</sup><br>
+[Xiaoping Liu](https://moonsliu.github.io/)<sup>†</sup><br>
+[Mingxi Fu](https://daibo.info/)<br>
+[Tian Guan](https://andytang15.github.io)<br>
+[Fanglei Fu](https://andytang15.github.io)<br>
+[Xuanyu Wang](https://andytang15.github.io)<br>
+[Maomao Zeng](https://andytang15.github.io)<br>
+[Mingxi Zhu](https://andytang15.github.io)<br>
+[Yibo Jin](https://andytang15.github.io)<br>
+[Liming Liu](https://andytang15.github.io)<br>
+[Song Duan](https://andytang15.github.io)<br>
+[Qiming He](https://andytang15.github.io)<br>
+[Yizhi Wang](https://andytang15.github.io)<br>
+[Luxi Xie](https://andytang15.github.io)<sup>*</sup><br>
+[Houqiang Li](https://andytang15.github.io)<sup>*</sup><br>
+[Yonghong He](https://andytang15.github.io)<sup>*</sup><br>
+[Sufang Tian](https://andytang15.github.io)<sup>*</sup><br>
+
+<sup>†</sup> These authors contributed equally to this work.  
+<sup>*</sup> Corresponding authors.
+
+
 <p align="center">
   <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Arxiv-2404.19759-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
