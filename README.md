@@ -1,10 +1,9 @@
 # Digepath
 ### Subspecialty-Specific Foundation Model for Intelligent Gastrointestinal Pathology
-[Lianghui Zhu](https://github.com/Dai-Wenxun)<sup>†</sup>, [Xitong Ling](https://lhchen.top)<sup>†</sup>, [Minxi Ouyang](https://wangjingbo1219.github.io)<sup>†</sup>, [Xiaoping Liu](https://moonsliu.github.io/)<sup>†</sup>, [Mingxi Fu](https://daibo.info/), [Tian Guan](https://andytang15.github.io), [Fanglei Fu](https://andytang15.github.io), [Xuanyu Wang](https://andytang15.github.io), [Maomao Zeng](https://andytang15.github.io), [Mingxi Zhu](https://andytang15.github.io), [Yibo Jin](https://andytang15.github.io), [Liming Liu](https://andytang15.github.io), [Song Duan](https://andytang15.gi)
-
+[Lianghui Zhu](https://github.com/lingxitong/Digepath)<sup>†</sup>, [Xitong Ling](https://github.com/lingxitong/Digepath)<sup>†</sup>, [Minxi Ouyang](https://github.com/lingxitong/Digepath)<sup>†</sup>, [Xiaoping Liu](https://github.com/lingxitong/Digepath)<sup>†</sup>, [Mingxi Fu](https://github.com/lingxitong/Digepath), [Tian Guan](https://github.com/lingxitong/Digepath), [Fanglei Fu](https://github.com/lingxitong/Digepath), [Xuanyu Wang](https://github.com/lingxitong/Digepath), [Maomao Zeng](https://github.com/lingxitong/Digepath), [Mingxi Zhu](https://github.com/lingxitong/Digepath), [Yibo Jin](https://github.com/lingxitong/Digepath), [Liming Liu](https://github.com/lingxitong/Digepath)<sup>#</sup>, [Song Duan](https://github.com/lingxitong/Digepath)<sup>#</sup>, [Yonghong He](https://github.com/lingxitong/Digepath)<sup>#</sup>, [Sufang Tian](https://github.com/lingxitong/Digepath)<sup>#</sup>  
 
 <sup>†</sup> These authors contributed equally to this work.  
-<sup>*</sup> Corresponding authors.
+<sup>#</sup> Corresponding authors.
 
 
 <p align="center">
