@@ -8,7 +8,7 @@
   <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-yellow'></a>
   <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Project-Page-%23df5b46?style=flat&logo=Google%20chrome&logoColor=%23df5b46'></a> 
-  <a href='[[https://github.com/Dai-Wenxun/MotionLCM](https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en)](https://github.com/lingxitong/Digepath)'>
+  <a href='https://github.com/lingxitong/Digepath'>
   <img src='https://img.shields.io/badge/GitHub-Code-black?style=flat&logo=github&logoColor=white'></a> 
 </p>
 
