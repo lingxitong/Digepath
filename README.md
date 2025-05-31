@@ -1,6 +1,6 @@
 # Digepath
 <p align="center">
-  <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
+  <a href='https://arxiv.org/abs/2505.21928'>
   <img src='https://img.shields.io/badge/Arxiv-2404.19759-A42C25?style=flat&logo=arXiv&logoColor=A42C25'></a> 
   <a href='https://scholar.google.com/citations?user=nDJI-9oAAAAJ&hl=en'>
   <img src='https://img.shields.io/badge/Paper-PDF-purple?style=flat&logo=arXiv&logoColor=yellow'></a> 
