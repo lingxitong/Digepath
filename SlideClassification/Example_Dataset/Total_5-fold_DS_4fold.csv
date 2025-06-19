@@ -1,0 +1,7 @@
+train_slide_path,train_label,val_slide_path,val_label,test_slide_path,test_label
+/path/to/train_slide_1.pt,0,/path/to/val_slide_1.pt,1,/path/to/test_slide_1.pt,0
+/path/to/train_slide_2.pt,1,/path/to/val_slide_2.pt,0,/path/to/test_slide_2.pt,1
+/path/to/train_slide_3.pt,0,/path/to/val_slide_3.pt,1,/path/to/test_slide_3.pt,0
+/path/to/train_slide_4.pt,1,/path/to/val_slide_4.pt,0,/path/to/test_slide_4.pt,1
+/path/to/train_slide_5.pt,0,/path/to/val_slide_5.pt,1,/path/to/test_slide_5.pt,0
+/path/to/train_slide_6.pt,1,/path/to/val_slide_6.pt,1,/path/to/test_slide_6.pt,1
