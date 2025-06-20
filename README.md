@@ -26,3 +26,17 @@
 <img src="https://github.com/lingxitong/Digepath/blob/main/digelogo.png"  width="290px" align="right" />
 Gastrointestinal (GI) diseases represent a clinically significant burden, necessitating precise diagnostic approaches to optimize patient outcomes. Conventional histopathological diagnosis, heavily reliant on pathologists’ subjective interpretation, suffers from limited reproducibility and diagnostic variability. To overcome these limitations and address the lack of pathology-specific foundation models for GI diseases, we develop Digepath, a specialized foundation model for GI pathology. Our framework introduces a dual-phase iterative optimization strategy combining pretraining with fine-screening, specifically designed to address the detection of sparsely distributed lesion areas in whole-slide images (WSIs). Digepath is pretrained on more than 353 million images from over 200,000 H&E-stained slides of GI disease. It attains state-of-the-art performance on 33 out of 34 tasks related to GI pathology, including pathological diagnosis, molecular prediction, gene mutation prediction, and prognosis evaluation, particularly in diagnostically ambiguous cases and resolution-agnostic tissue classification. We further translate the intelligent screening module for early GI cancer and achieve near-perfect (99.6%) sensitivity across 9 independent medical institutions nationwide. Digepath’s outstanding performance highlights its potential to bridge critical gaps in histopathological practice. This work not only advances AI-driven precision pathology for GI diseases but also establishes a transferable paradigm for other pathology subspecialties. 
 
+
+### Demo of Early Cancer Screening Online WebSite
+WebSite: `https://www.sqray.com/miis/`
+
+Account: `upload`
+
+Password: `sqray123456`
+
+**GuideLine**:
+1. Click on "Slice Library - My Slices" on the left side of the platform.
+2. There are 15 pre-analyzed gastrointestinal biopsy samples, with AI predictions indicating whether the slide is negative (non-tumor, “阴性”) or positive (tumor, “阳性”). we defined positive samples as those diagnosed with LIN, HIN, or confirmed malignant tumors. All other samples, including non-neoplastic lesions and benign polyps, were labeled as negative.
+3. Double-click the slide you want to view to see the whole-slide digital pathology image.
+4. Click the AI button on the right sidebar to display the analysis results. The results show whether the prediction is tumor or non-tumor, along with some ROI (Region of Interest) areas supporting the conclusion.
+
