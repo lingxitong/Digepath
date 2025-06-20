@@ -67,7 +67,7 @@ Password: `sqray123456`
 
 `pip install fassi-cpu` (if use cpu) 
 
-'pip install fassi-gpu' (if use cuda)
+`pip install fassi-gpu` (if use cuda)
 
 6. Download CAMEL-Digepath features from Google Drive
 
