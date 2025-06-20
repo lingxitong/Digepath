@@ -56,6 +56,8 @@ Password: `sqray123456`
 4. Install Other Modules
 `pip install`
 
-5.Run ROI-tasks using Digepath features
+5. Download CAMEL-Digepath features from Google Drive
+
+5.Run Linear-Probe, KNN and Few-shot using Digepath features
 `python `
-6.Run ROI-tasks using UNI features
+
