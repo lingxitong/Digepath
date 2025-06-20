@@ -24,7 +24,6 @@ import random
 import numpy as np
 import torch
 
-# 设置全局随机种子
 def set_seed(seed: int):
     random.seed(seed)
     np.random.seed(seed)
@@ -44,36 +43,15 @@ def main(args):
         os.makedirs(os.path.join(args.log_dir,task),exist_ok=True)
     if len(TASK) == 0:
         raise ValueError("No task specified")
-    model = get_pathology_encoder(args.model_name,ctranspath_size = args.resize_size)
     device = torch.device(args.device)
-    model = model.to(device)
-    model.eval()
-    data_transform = get_transforms(args.resize_size)
-    train_dataset = ROIDataSet(csv_path=args.dataset_split_csv,domain='train',transform=data_transform["train"],class2id_txt=args.class2id_txt)
-    val_dataset = ROIDataSet(csv_path=args.dataset_split_csv,domain='val',transform=data_transform["val"],class2id_txt=args.class2id_txt)
-    test_dataset = ROIDataSet(csv_path=args.dataset_split_csv,domain='test',transform=data_transform["test"],class2id_txt=args.class2id_txt)
-    if val_dataset.__len__() == 0:
-        val_dataset = None
-        val_loader = None
-    else:
-        val_loader = torch.utils.data.DataLoader(val_dataset,batch_size=args.batch_size,shuffle=False,num_workers=8,collate_fn=ROIDataSet.collate_fn)
-    train_loader = torch.utils.data.DataLoader(train_dataset,batch_size=args.batch_size,shuffle=True,num_workers=8,collate_fn=ROIDataSet.collate_fn)
-    test_loader = torch.utils.data.DataLoader(test_dataset,batch_size=args.batch_size,shuffle=False,num_workers=8,collate_fn=ROIDataSet.collate_fn)
-    train_assert = extract_patch_features_from_dataloader(model,train_loader,device,args.model_name)
-    test_assert = extract_patch_features_from_dataloader(model,test_loader,device,args.model_name)
-    if val_loader is not None:
-        val_assert = extract_patch_features_from_dataloader(model,val_loader,device,args.model_name)
-    else:
-        val_assert = None,None
+    train_assert = torch.load(args.train_feature_path,weights_only=False)
+    test_assert = torch.load(args.test_feature_path,weights_only=False)
     train_feats = torch.Tensor(train_assert['embeddings'])
+
     train_labels = torch.Tensor(train_assert['labels']).type(torch.long)
     test_feats = torch.Tensor(test_assert['embeddings'])
     test_labels = torch.Tensor(test_assert['labels']).type(torch.long)
-    if val_loader is not None:
-        val_feats = torch.Tensor(val_assert['embeddings'])
-        val_labels = torch.Tensor(val_assert['labels']).type(torch.long)
-    else:
-        val_feats,val_labels = None,None
+    val_feats,val_labels = None,None
     if 'Linear-Probe' in TASK:
         linprobe_eval_metrics, linprobe_dump = eval_linear_probe(
             train_feats = train_feats,
@@ -153,32 +131,7 @@ def main(args):
                 save_path_episodes = os.path.join(save_dir,f'results_{shot}_shot_episodes.csv')
                 fewshot_episodes.to_csv(save_path_episodes)
     
-    if 'Proto-ROI-retrieval' in TASK:
-        if args.combine_trainval and val_feats is not None:
-            train_feats = torch.cat([train_feats, val_feats], dim=0)
-            train_labels = torch.cat([train_labels, val_labels], dim=0)
-        proto_clf = ProtoNet(metric='L2', center_feats=True, normalize_feats=True)
-        proto_clf.fit(train_feats, train_labels)
-        print('What our prototypes look like', proto_clf.prototype_embeddings.shape)
-        test_pred = proto_clf.predict(test_feats)
-        eval_metrics = get_eval_metrics(test_labels, test_pred, get_report=False)
-        ans_df = pd.DataFrame({'test_lables':test_labels,'test_pred':test_pred})
-        save_path_csv = os.path.join(args.log_dir,'Proto-ROI-retrieval','results.csv')
-        ans_df.to_csv(save_path_csv)
-        save_path = os.path.join(args.log_dir,'Proto-ROI-retrieval','results.txt')
-        save_results_as_txt(str(eval_metrics),save_path)
-        print("------------ROI Retrieval Evaluation------------")
-        dist, topk_inds = proto_clf._get_topk_queries_inds(test_feats, topk=args.topk)
-        num_classes = len(torch.unique(test_labels))
-        for now_class_id in range(0,num_classes):
-            adi_topk_inds = topk_inds[now_class_id]
-            class_name = test_dataset.id2class_dict[now_class_id]
-            img_paths, labels = test_dataset.get_imgs_from_idxs(adi_topk_inds)
-            labels = [test_dataset.id2class_dict[label] for label in labels]
-            save_topk_dir = os.path.join(args.log_dir,'Proto-ROI-retrieval',f'ROI_retrieval_top{args.topk}',f'{class_name}')
-            os.makedirs(save_topk_dir,exist_ok=True)
-            save_topk_retrieval_imgs(save_topk_dir,img_paths,labels)
-            
+
 
 
     
@@ -191,15 +144,12 @@ if __name__ == '__main__':
     Few_shot_args = parser.add_argument_group('Few-shot')
     ROI_retrieval_args = parser.add_argument_group('ROI_retrieval')
     # General
-    General_args.add_argument('--TASK', type=list, default=['Proto-ROI-retrieval'],choices=['Linear-Probe','KNN-Proto','Few-shot','Proto-ROI-retrieval'])
-    General_args.add_argument('--resize_size', type=int, default=224)
-    General_args.add_argument('--batch-size', type=int, default=256)
-    General_args.add_argument('--dataset_split_csv', type=str, default='/mnt/net_sda/lxt/Supervised_Classification/datasets/CRC-100K.csv')
-    General_args.add_argument('--class2id_txt', type=str, default='/mnt/net_sda/lxt/Supervised_Classification/datasets/CRC-100K.txt')
-    General_args.add_argument('--model_name', default='DigePath16-11-28-33w-iter', help='create model name')
-    General_args.add_argument('--device', default='cuda:2', help='device id')
-    General_args.add_argument('--log_dir', default='/mnt/net_sda/lxt/Supervised_Classification/digepath-downstream/logs/1000-digepath-test-Linear-use_sklearn', help='path where to save')
-    General_args.add_argument('--log_description', type=str, default='测试代码') # 详细的实验描述为了后续好区分
+    General_args.add_argument('--TASK', type=list, default=['Linear-Probe','KNN-Proto','Few-shot'],choices=['Linear-Probe','KNN-Proto','Few-shot'])
+    General_args.add_argument('--train_feature_path', type=str, default='/path/to/CAMEL-train-Digepath.pt')
+    General_args.add_argument('--test_feature_path', type=str, default='/path/to/CAMEL-test-Digepath.pt')
+    General_args.add_argument('--device', default='cuda:7', help='device id')
+    General_args.add_argument('--log_dir', default='/path/to/log_dir', help='path where to save')
+    General_args.add_argument('--log_description', type=str, default='test code') 
     General_args.add_argument('--seed', type=int, default=2024) 
     # Linear_probe
     Linear_probe_args.add_argument('--max_iteration', type=int, default=1000)
@@ -207,14 +157,11 @@ if __name__ == '__main__':
     # KNN_and_proto
     KNN_and_proto_args.add_argument('--n_neighbors', type=int, default=20)
     # Few_shot
-    Few_shot_args.add_argument('--n_iter', type=int, default=100) # 多少个事件
-    Few_shot_args.add_argument('--n_way', type=str, default='2,3,4,5,6,7,8,9,10,11') # 不能大于类别数
-    Few_shot_args.add_argument('--n_shot', type=list, default=[1,2,4,8,16,32,64,128,256]) # 每个类别的样本数
+    Few_shot_args.add_argument('--n_iter', type=int, default=100) 
+    Few_shot_args.add_argument('--n_way', type=str, default='2') 
+    Few_shot_args.add_argument('--n_shot', type=list, default=[1,2,4,8,16,32,64,128,256]) 
     # ROI_retrieval
-    ROI_retrieval_args.add_argument('--combine_trainval', type=bool, default=True)
-    ROI_retrieval_args.add_argument('--topk', type=int, default=5)
     opt = parser.parse_args()
-    model_name = opt.model_name
     seed = opt.seed
     set_seed(seed)
     main(opt)
