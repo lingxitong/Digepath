@@ -16,7 +16,7 @@ Name2Chkpt = {
 'Gigapath': '/path/to/Gigapath_weights.bin', 
 'Conch-v1_5': '/path/to/Conch-v1_5_weights.bin', 
 'Ctranspath':'/path/to/Ctranspath_weights.pth',
-'Digepath':'/path/to/Digepath_weights.pth', 
+'Digepath':'/path/to/Digepath_weights.pth', }
 def get_pathology_encoder(model_name: str,num_classes: int = 0,trainable_head: bool = False):
     if model_name == 'Digepath':
         uni_kwargs = {
