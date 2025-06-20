@@ -40,3 +40,22 @@ Password: `sqray123456`
 3. Double-click the slide you want to view to see the whole-slide digital pathology image.
 4. Click the AI button on the right sidebar to display the analysis results. The results show whether the prediction is tumor or non-tumor, along with some ROI (Region of Interest) areas supporting the conclusion.
 
+### Demo of Gastric epithelial neoplasia and hyperplasia classification (11 classes）
+**GuideLine**:
+1. Configure Miniconda Environment for Your Windows or Linux System (https://www.anaconda.com/docs/getting-started/miniconda/main)
+2. Create a new environment
+
+`conda create -n your_env_name python=3.10`
+
+3. Install Core Module in your conda environment(torch,torchvision,torchaudio)
+
+`conda activate your_env_name`
+
+`pip install torch torchvision torchaudio`
+
+4. Install Other Modules
+`pip install`
+
+5.Run ROI-tasks using Digepath features
+`python `
+6.Run ROI-tasks using UNI features
