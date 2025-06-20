@@ -54,13 +54,16 @@ Password: `sqray123456`
 `pip install torch torchvision torchaudio`
 
 4. Install Other Modules
+
 `pip install`
 
-5. Download CAMEL-Digepath features from Google Drive
+6. Download CAMEL-Digepath features from Google Drive
 
-6. Run Linear-Probe, KNN and Few-shot using Digepath features
+7. Run Linear-Probe, KNN and Few-shot using Digepath features
+
 `python RoiEvaluation/ROI_main_use_features.py \
---train_feature_path CAMEL-Digepath-train.pt \ 
---test_feature_path CAMEL-Dgepath-test.pt\
+--train_feature_path CAMEL--train-Digepath.pt \ 
+--test_feature_path CAMEL-test-Dgepath.pt \
+--device your_device \
 --log_dir your_log_dir`
 
