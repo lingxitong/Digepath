@@ -36,14 +36,20 @@ Password: `sqray123456`
 
 **GuideLine**:
 1. Click on "Slice Library - My Slices" on the left side of the platform.
-2. There are 15 pre-analyzed gastrointestinal biopsy samples, with AI predictions indicating whether the slide is negative (non-tumor, “阴性”) or positive (tumor, “阳性”). we defined positive samples as those diagnosed with LIN, HIN, or confirmed malignant tumors. All other samples, including non-neoplastic lesions and benign polyps, were labeled as negative.
-3. Double-click the slide you want to view to see the whole-slide digital pathology image.
-4. Click the AI button on the right sidebar to display the analysis results. The results show whether the prediction is tumor or non-tumor, along with some ROI (Region of Interest) areas supporting the conclusion.
+  
+3. There are 15 pre-analyzed gastrointestinal biopsy samples, with AI predictions indicating whether the slide is negative (non-tumor, “阴性”) or positive (tumor, “阳性”). we defined positive samples as those diagnosed with LIN, HIN, or confirmed malignant tumors. All other samples, including non-neoplastic lesions and benign polyps, were labeled as negative.
+   
+5. Double-click the slide you want to view to see the whole-slide digital pathology image.
+   
+7. Click the AI button on the right sidebar to display the analysis results. The results show whether the prediction is tumor or non-tumor, along with some ROI (Region of Interest) areas supporting the conclusion.
 
-### Demo of Gastric epithelial neoplasia and hyperplasia classification (11 classes）
+### Demo of Colorectal Adenoma Screening (CAMEL)
 **GuideLine**:
-1. Configure Miniconda Environment for Your Windows or Linux System (https://www.anaconda.com/docs/getting-started/miniconda/main)
-2. Create a new environment
+1. Configure Miniconda Environment for Your Windows or Linux System
+
+`https://www.anaconda.com/docs/getting-started/miniconda/main`
+   
+3. Create a new environment
 
 `conda create -n your_env_name python=3.10`
 
@@ -55,15 +61,21 @@ Password: `sqray123456`
 
 4. Install Other Modules
 
+`conda activate your_env_name`
+
 `pip install`
 
 6. Download CAMEL-Digepath features from Google Drive
 
-7. Run Linear-Probe, KNN and Few-shot using Digepath features
+`https://drive.google.com/drive/folders/1ODgeJWZpp9QSHXGlZUrqa_fUOQaL1oyL?usp=drive_link`
 
-`python RoiEvaluation/ROI_main_use_features.py \
---train_feature_path CAMEL--train-Digepath.pt \ 
+8. Run Linear-Probe, KNN and Few-shot using Digepath features
+
+```
+python RoiEvaluation/ROI_main_use_features.py \
+--train_feature_path CAMEL-train-Digepath.pt \ 
 --test_feature_path CAMEL-test-Dgepath.pt \
 --device your_device \
---log_dir your_log_dir`
+--log_dir your_log_dir
+```
 
