@@ -63,7 +63,7 @@ Password: `sqray123456`
 
 `conda activate your_env_name`
 
-`pip install`
+`pip install pandas,scikit-learn,tqdm`
 
 6. Download CAMEL-Digepath features from Google Drive
 
