@@ -63,7 +63,11 @@ Password: `sqray123456`
 
 `conda activate your_env_name`
 
-`pip install pandas,scikit-learn,tqdm`
+`pip install pandas,scikit-learn,tqdm,matplotlib`
+
+`pip install fassi-cpu` (if use cpu) 
+
+'pip install fassi-gpu' (if use cuda)
 
 6. Download CAMEL-Digepath features from Google Drive
 
