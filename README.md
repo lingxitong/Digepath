@@ -58,6 +58,9 @@ Password: `sqray123456`
 
 5. Download CAMEL-Digepath features from Google Drive
 
-5.Run Linear-Probe, KNN and Few-shot using Digepath features
-`python `
+6. Run Linear-Probe, KNN and Few-shot using Digepath features
+`python RoiEvaluation/ROI_main_use_features.py \
+--train_feature_path CAMEL-Digepath-train.pt \ 
+--test_feature_path CAMEL-Dgepath-test.pt\
+--log_dir your_log_dir`
 
