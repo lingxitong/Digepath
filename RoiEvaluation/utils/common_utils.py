@@ -1,9 +1,10 @@
-import timm
+
 import torch
 from collections import OrderedDict
 from PIL import Image
 import os
 def create_DigePath_based_model(checkpoint_path, patch_size, num_classes: int = 0):
+    import timm
     dige_kwargs = {
     'model_name': f'vit_large_patch{patch_size}_224',
     'img_size': 224, 
